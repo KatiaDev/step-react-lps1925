@@ -1,49 +1,60 @@
-import postsList from "./data";
-import Post from "./components/Post/Post";
-import SearchBar from "./components/SearchBar/SearchBar";
 import { useEffect, useState } from "react";
+import SinglePost from "./components/SinglePost";
+import Time from "./components/Time";
 
 function App() {
-  /// JSX - html in javascript
-  /// reactul face re-rendering doar la schimbare de state sau props!!!!
-
   const [posts, setPosts] = useState([]);
-  console.log("postsList:", postsList);
+  const [postId, setPostId] = useState("");
+
+  console.log(postId);
+
+  //useEffect(()=>{})
+  //useEffect(()=>{callback fn}, [dependencies])
+  //useEffect(()=>{}, [])
+
+  // console.log("Hello 1");
+
+  // useEffect(() => {
+  //   console.log("Hello 2");
+  // });
+
+  // console.log("Hello 3");
 
   useEffect(() => {
-    setPosts(postsList);
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => response.json())
+      .then((json) => setPosts(json));
   }, []);
 
-  const searchPosts = (query) => {
-    if (query !== "") {
-      const filteredPostsLists = posts.filter((post) => {
-        return post.username.includes(query);
-      });
-      /// posts=filteredPosts;
-      return setPosts(filteredPostsLists);
-    }
-
-    return setPosts(posts);
-  };
-
-  const likePost = (postId, isLiked) => {
-    const updatedPosts = posts.map((post) => {
-      if (post.id === postId) {
-        return !isLiked
-          ? { ...post, likes: post.likes + 1 }
-          : { ...post, likes: post.likes - 1 };
-      }
-      return post;
-    });
-    setPosts(updatedPosts);
+  const handleButtonClick = (id) => {
+    setPostId(id);
   };
 
   return (
     <div className="App">
-      <SearchBar searchPosts={searchPosts} setPosts={setPosts} />
-      {posts.map((post) => {
-        return <Post key={post.id} post={post} likePost={likePost} />;
-      })}
+      <Time />
+
+      {postId ? (
+        <SinglePost postId={postId} setPostId={setPostId} />
+      ) : (
+        posts.map((post) => {
+          return (
+            <div key={post.id} style={{ margin: "80px" }}>
+              <p>
+                {" "}
+                <strong>Title:</strong> {post.title}
+              </p>
+              <p>
+                <strong>Body:</strong>
+                {post.body}
+              </p>
+              <button onClick={() => handleButtonClick(post.id)}>
+                Show More
+              </button>
+            </div>
+          );
+        })
+      )}
     </div>
   );
 }
