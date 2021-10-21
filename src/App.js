@@ -1,6 +1,7 @@
 import { Component } from "react";
 import TodoList from "./components/TodoList";
 import TodoForm, { SimpleTodo } from "./components/TodoForm"; /// named import
+import FakeTodos from "./components/FakeTodos";
 ///import TestComponent from "./components/TestComponent";
 
 const LOCALSTORAGE_KEY = "todos";
@@ -13,6 +14,7 @@ class App extends Component {
 
     this.state = {
       todos: localStorageTodos ? JSON.parse(localStorageTodos) : [],
+      showFaketodos: false,
     };
   }
 
@@ -60,13 +62,27 @@ class App extends Component {
   render() {
     console.log("input:", this.state.inputValue);
     console.log("todos:", this.state.todos);
+    console.log("showFaketodos", this.state.showFaketodos);
     return (
       <div className="App">
-        <TodoForm addToDo={this.addToDo} removeTodo={this.removeTodo} />
-
-        <TodoList todos={this.state.todos} markCompleted={this.markCompleted} />
-
+        <button
+          onClick={() =>
+            this.setState({ showFaketodos: !this.state.showFaketodos })
+          }
+        >
+          Show FakeTodos
+        </button>
         {/* <TestComponent /> */}
+        {!this.state.showFaketodos ? (
+          <TodoList
+            removeTodo={this.removeTodo}
+            addToDo={this.addToDo}
+            todos={this.state.todos}
+            markCompleted={this.markCompleted}
+          />
+        ) : (
+          <FakeTodos />
+        )}
       </div>
     );
   }
