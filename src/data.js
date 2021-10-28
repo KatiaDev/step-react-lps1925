@@ -1,156 +1,145 @@
-const postsList = [
+// Data gathered from https://www.marvel.com/characters
+// eslint-disable-next-line import/no-anonymous-default-export
+export const avengers = [
   {
     id: 1,
-    username: "philzcoffee",
-    thumbnailUrl:
-      "https://icon2.cleanpng.com/20180320/sqe/kisspng-twitch-computer-icons-streaming-media-youtube-live-tv-twitch-icon-5ab19172461392.001176751521586546287.jpg",
-    imageUrl:
-      "https://images.unsplash.com/photo-1477763858572-cda7deaa9bc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1876&q=80",
-    likes: 400,
-    timestamp: "July 17th 2017, 12:42:40 pm",
-    comments: [
-      {
-        id: 22,
-        username: "philzcoffee",
-        text: "We've got more than just coffees!",
-      },
-      {
-        id: 23,
-        username: "biancasaurus",
-        text: "Looks delicious!",
-      },
-      {
-        id: 24,
-        username: "martinseludo",
-        text: "Can't wait to try it!",
-      },
+    name: "Iron Man",
+    nickname: "Armored Avenger",
+    description:
+      "Genius. Billionaire. Playboy. Philanthropist. Tony Stark's confidence is only matched by his high-flying abilities as the hero called Iron Man.",
+    thumbnail:
+      "https://terrigen-cdn-dev.marvel.com/content/prod/1x/002irm_com_crd_01.jpg",
+    img: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/002irm_com_mas_dsk_03_0.jpg",
+    movies: [
+      "Avengers: Infinity War",
+      "Spiderman: Homecoming",
+      "Captain America: Civil War",
+      "Avengers: Age of Ultron",
+      "Iron Man 3",
+      "The Avengers",
     ],
   },
   {
     id: 2,
-    username: "twitch",
-    thumbnailUrl:
-      "https://icon2.cleanpng.com/20180320/sqe/kisspng-twitch-computer-icons-streaming-media-youtube-live-tv-twitch-icon-5ab19172461392.001176751521586546287.jpg",
-    imageUrl:
-      "https://images.unsplash.com/photo-1566577134770-3d85bb3a9cc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3750&q=80",
-    likes: 4307,
-    timestamp: "July 15th 2017, 03:12:09 pm",
-    comments: [
-      {
-        id: 36,
-        username: "twitch",
-        text: "Epic Street Fighter action here in Vegas!",
-      },
-      {
-        id: 37,
-        username: "michaelmarzetta",
-        text: "Omg that match was crazy",
-      },
-      {
-        id: 38,
-        username: "themexican_leprechaun",
-        text: "What a setup",
-      },
-      {
-        id: 39,
-        username: "dennis_futbol",
-        text: "It that injustice",
-      },
+    name: "Thor",
+    nickname: "God of Thunder",
+    description:
+      "The son of Odin uses his mighty abilities as the God of Thunder to protect his home Asgard and planet Earth alike.",
+    thumbnail:
+      "https://terrigen-cdn-dev.marvel.com/content/prod/1x/004tho_com_crd_01.jpg",
+    img: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/004tho_com_mas_dsk_03_1.jpg",
+    movies: [
+      "Avengers: Infinity War",
+      "Thor: Ragnarok",
+      "Avengers: Age of Ultron",
+      "Thor: The Dark World",
+      "The Avengers",
     ],
   },
   {
     id: 3,
-    username: "philzcoffee",
-    thumbnailUrl:
-      "https://tk-assets.lambdaschool.com/ecd33d34-c124-4b75-92d2-e5c52c171ed8_11201517_887808411287357_1307163552_a.jpg",
-
-    imageUrl:
-      "https://tk-assets.lambdaschool.com/69cf901b-f96d-466e-a745-ff2a01effac9_philz-image.jpg",
-    likes: 400,
-    timestamp: "July 17th 2017, 12:42:40 pm",
-    comments: [
-      {
-        id: 31,
-        username: "philzcoffee",
-        text: "We've got more than just delicious coffees to offer at our shops!",
-      },
-      {
-        id: 32,
-        username: "biancasaurus",
-        text: "Looks delicious!",
-      },
-      {
-        id: 33,
-        username: "martinseludo",
-        text: "Can't wait to try it!",
-      },
+    name: "Captain America",
+    nickname: "Sentinel of Liberty",
+    description:
+      "Recipient of the Super-Soldier serum, World War II hero Steve Rogers fights for American ideals as one of the world’s mightiest heroes and the leader of the Avengers.",
+    thumbnail:
+      "https://terrigen-cdn-dev.marvel.com/content/prod/1x/003cap_com_crd_01.jpg",
+    img: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/003cap-com-mas-one_1.jpg",
+    movies: [
+      "Avengers: Infinity War",
+      "Captain America: Civil War",
+      "Avengers: Age of Ultron",
+      "Captain America: The Winter Soldier",
+      "The Avengers",
     ],
   },
-
   {
     id: 4,
-    username: "fortnite",
-    thumbnailUrl:
-      "https://tk-assets.lambdaschool.com/ce601fdf-7cb0-4098-83d3-1a1584a72513_30841289_342445456281079_112845064497004544_n.jpg",
-    imageUrl:
-      "https://tk-assets.lambdaschool.com/89d13918-b7a2-4b40-9658-f376ea3f6b59_37131538_213683546146400_1083714364399157248_n.jpg",
-    likes: 4307,
-    timestamp: "July 15th 2017, 03:12:09 pm",
-    comments: [
-      {
-        id: 41,
-        username: "twitch",
-        text: "Epic Street Fighter action here in Las Vegas at #EVO2017!",
-      },
-      {
-        id: 42,
-        username: "michaelmarzetta",
-        text: "Omg that match was crazy",
-      },
-      {
-        id: 43,
-        username: "themexican_leprechaun",
-        text: "What a setup",
-      },
-      {
-        id: 44,
-        username: "dennis_futbol",
-        text: "It that injustice",
-      },
-      {
-        id: 45,
-        username: "dennis_futbol",
-        text: "Is",
-      },
+    name: "Spiderman",
+    nickname: "The Wallcrawler",
+    description:
+      "Bitten by a radioactive spider, Peter Parker’s arachnid abilities give him amazing powers he uses to help others, while his personal life continues to offer plenty of obstacles.",
+    thumbnail:
+      "https://terrigen-cdn-dev.marvel.com/content/prod/1x/005smp_com_crd_01.jpg",
+    img: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/005smp_com_mas_dsk_03_2.jpg",
+    movies: [
+      "Avengers: Infinity War",
+      "Spiderman: Homecoming",
+      "Captain America: Civil War",
     ],
   },
   {
     id: 5,
-    username: "playhearthstone",
-    thumbnailUrl:
-      "https://tk-assets.lambdaschool.com/c432f179-8bd7-4758-959d-d88a21f96bca_37105899_432228420518610_5035444036064772096_n.jpg",
-    imageUrl:
-      "https://tk-assets.lambdaschool.com/43bf01f9-319c-469d-8cf5-0120fe1007f1_yosemite.jpg",
-    likes: 5306,
-    timestamp: "July 14th 2017, 10:04:08 am",
-    comments: [
-      {
-        id: 51,
-        username: "playhearthstone",
-        text: "Love this shot!",
-      },
-      {
-        id: 52,
-        username: "awaywetravel",
-        text: "Yosemite is my most favorite place in the universe",
-      },
-      {
-        id: 53,
-        username: "awesomebt28",
-        text: "I like how Half Dome looks so old and useless",
-      },
+    name: "Hulk",
+    nickname: "Big guy",
+    description:
+      "Dr. Bruce Banner lives a life caught between the soft spoken scientist he’s always been and the uncontrollable green monster powered by his rage.",
+    thumbnail:
+      "https://terrigen-cdn-dev.marvel.com/content/prod/1x/006hbb_com_crd_01.jpg",
+    img: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/006hbb_com_mas_dsk_01_4.jpg",
+    movies: [
+      "Avengers: Infinity War",
+      "Thor: Ragnarok",
+      "Avengers: Age of Ultron",
+      "The Avengers",
     ],
   },
+  {
+    id: 6,
+    name: "Black Widow",
+    nickname: "Super Spy Assassin",
+    description:
+      "Despite super spy Natasha Romanoff’s checkered past, she’s become one of S.H.I.E.L.D.’s most deadly assassins and a frequent member of the Avengers.",
+    thumbnail:
+      "https://terrigen-cdn-dev.marvel.com/content/prod/1x/011blw_com_crd_01.jpg",
+    img: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/011blw_com_mas_mob_01.jpg",
+    movies: [
+      "Avengers: Infinity War",
+      "Captain America: Civil War",
+      "Avengers: Age of Ultron",
+      "The Avengers",
+    ],
+  },
+  {
+    id: 7,
+    name: "The Vision",
+    nickname: "Android Avenger",
+    description:
+      "The android called Vision defies physics and fights as an Avenger with the power of density manipulation and his flawless computer brain",
+    thumbnail:
+      "https://terrigen-cdn-dev.marvel.com/content/prod/1x/013vis_com_crd_01.jpg",
+    img: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/013vis_com_mas_dsk_02_0.jpg",
+    movies: [
+      "Avengers: Infinity War",
+      "Spiderman: Homecoming",
+      "Captain America: Civil War",
+      "Avengers: Age of Ultron",
+    ],
+  },
+  {
+    id: 8,
+    name: "Black Panter",
+    nickname: "King of Wakanda",
+    description:
+      "T’Challa is the king of the secretive and highly advanced African nation of Wakanda - as well as the powerful warrior known as the Black Panther.",
+    thumbnail:
+      "https://terrigen-cdn-dev.marvel.com/content/prod/1x/007blp_com_crd_01_0.jpg",
+    img: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/007blp_com_mas_mob_05.jpg",
+    movies: [
+      "Avengers: Infinity War",
+      "Spiderman: Homecoming",
+      "Black Panther",
+    ],
+  },
+  {
+    id: 9,
+    name: "Doctor Strange",
+    nickname: "Master of Magic",
+    description:
+      "Formerly a renowned surgeon, Doctor Stephen Strange now serves as the Sorcerer Supreme—Earth’s foremost protector against magical and mystical threats.",
+    thumbnail:
+      "https://terrigen-cdn-dev.marvel.com/content/prod/1x/009drs_com_crd_01.jpg",
+    img: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/009drs_com_mas_dsk_02.jpg",
+    movies: ["Avengers: Infinity War", "Doctor Strange"],
+  },
 ];
-
-export default postsList;

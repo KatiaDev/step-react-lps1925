@@ -1,60 +1,35 @@
-import { useEffect, useState } from "react";
-import SinglePost from "./components/SinglePost";
-import Time from "./components/Time";
+import { useState } from "react";
+import { avengers } from "./data";
+import { Link, Route, Switch } from "react-router-dom";
+import Home from "./pages/Home";
+import Avengers from "./pages/Avengers";
+import Avenger from "./pages/Avenger";
 
 function App() {
-  const [posts, setPosts] = useState([]);
-  const [postId, setPostId] = useState("");
-
-  console.log(postId);
-
-  //useEffect(()=>{})
-  //useEffect(()=>{callback fn}, [dependencies])
-  //useEffect(()=>{}, [])
-
-  // console.log("Hello 1");
-
-  // useEffect(() => {
-  //   console.log("Hello 2");
-  // });
-
-  // console.log("Hello 3");
-
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((json) => setPosts(json));
-  }, []);
-
-  const handleButtonClick = (id) => {
-    setPostId(id);
-  };
+  const [avengersList] = useState(avengers);
+  console.log(avengersList);
 
   return (
     <div className="App">
-      <Time />
-
-      {postId ? (
-        <SinglePost postId={postId} setPostId={setPostId} />
-      ) : (
-        posts.map((post) => {
-          return (
-            <div key={post.id} style={{ margin: "80px" }}>
-              <p>
-                {" "}
-                <strong>Title:</strong> {post.title}
-              </p>
-              <p>
-                <strong>Body:</strong>
-                {post.body}
-              </p>
-              <button onClick={() => handleButtonClick(post.id)}>
-                Show More
-              </button>
-            </div>
-          );
-        })
-      )}
+      <nav className="navbar">
+        <li>
+          <Link to="/"> Home </Link>
+        </li>
+        <li>
+          <Link to="/avengers">Avengers</Link>
+        </li>
+      </nav>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/avengers">
+          <Avengers avengersList={avengersList} />
+        </Route>
+        <Route path="/avengers/:avengerId">
+          <Avenger avengersList={avengersList} />
+        </Route>
+      </Switch>
     </div>
   );
 }
